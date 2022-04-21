@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<link rel="icon" type="image/png" href="kume.png" >
+	<link rel="apple-touch-icon" href="favicon.png">
+	
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+	
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script data-dapp-detection="">!function(){let e=!1;function n(){if(!e){const n=document.createElement("meta");n.name="dapp-detected",document.head.appendChild(n),e=!0}}if(window.hasOwnProperty("ethereum")){if(window.__disableDappDetectionInsertion=!0,void 0===window.ethereum)return;n()}else{var t=window.ethereum;Object.defineProperty(window,"ethereum",{configurable:!0,enumerable:!1,set:function(e){window.__disableDappDetectionInsertion||n(),t=e},get:function(){if(!window.__disableDappDetectionInsertion){const e=arguments.callee;e&&e.caller&&e.caller.toString&&-1!==e.caller.toString().indexOf("getOwnPropertyNames")||n()}return t}})}}();</script>
+
+	<script type="">
+		var L13 = 50/105;
+		var L14 = 1.5/130;
+		var L15 = 10/110;
+		var L17 = 300/160;
+		var L18 = 80/120;
+		var L19 = 1000/100;
+		var L20 = 400/104;
+		var L22 = 500/150;
+		var L23 = 100/150;
+		var H13 = 1/L13;
+		var I13 = 6/L13;
+
+
+			//F Peso Teorico 
+		function f_E8(){
+			
+			/*	
+			=IF(ISBLANK(E5);"";
+				   (IF(E4="F";(E5-152,4)*0,91+45,5;
+					(E5-152,4)*0,91+50)
+				    )
+				)*/
+			
+			resp='';
+			if (E5!=''){
+				if (E4=="F") {
+					resp=(E5-152.4)*0.91+45.5;
+				}else{
+					resp=(E5-152.4)*0.91+50;
+				}
+
+			}
+			return	resp;
+		}
+		
+		function f_E10() {
+			/*
+			=IF(ISBLANK(E6);"";E6/(E5/100*E5/100))
+			*/
+
+			resp='';
+
+			if (E6 != ''){
+				resp=E6/(E5/100*E5/100);
+			}
+			return	resp;
+		}
+		function f_E9(){
+			/* 
+				=IF(ISBLANK(E6);"";(IF(E10<30;"";(E6-E8)*0,4+E8)))
+			*/
+			
+			resp='';
+			if (E6 != ''){
+				if (E10>=30){
+					resp = (E6-E8)*0.4+E8;
+				}
+			}
+			return	resp;
+		}
+		function f_F13(){
+			return (parseFloat(H13).toFixed(1) + " - " + parseFloat(I13).toFixed(1));
+		}
+		function f_H14(){
+			/*
+			=TEXT((0,0007*E6)/L14;"0.0")
+			*/
+			return (0.0007*E6)/L14;	
+		}
+		function f_I14(){
+			/*
+				=TEXT((0,002*E6)/L14;"0.0")
+			*/
+				return (0.002*E6)/L14	;	
+		}
+		function f_J14(){
+				return (0.0007*E9)/L14;
+
+		}
+		function f_K14(){
+				return	(0.002*E9)/L14;
+		}
+
+		function	f_F14(){
+				/*
+				=IF(E10<30;H14&" - "&I14;J14&" - "&K14)
+				*/
+			if (E10 < 30){
+					resp = (parseFloat(H14).toFixed(1) + " - " + parseFloat(I14).toFixed(1));
+
+			} else {
+					resp = (parseFloat(J14).toFixed(1) + " - " + parseFloat(K14).toFixed(1));
+			}
+			return resp;
+
+		}
+
+		function f_H15(){
+				return	(0.00002*E6*60)/L15;
+		}
+
+		function	f_I15(){
+			return	(0.0002*E6*60)/L15;
+
+		}
+		function f_J15(){
+			return	(0.00002*E9*60)/L15;
+
+		}
+
+		function f_K15(){
+				return	(0.0002*E9*60)/L15;
+		}
+		
+
+
+		function	f_F15(){
+			/*
+				=IF(E10<30;H15&" - "&I15;J15&" - "&K15)
+			*/
+			resp ='';
+			if (E10 <30){
+				resp=  (parseFloat(H15).toFixed(1) + " - " + parseFloat(I15).toFixed(1));
+
+			}else{
+				resp=  (parseFloat(J15).toFixed(1) + " - " + parseFloat(K15).toFixed(1));
+
+			}
+			return resp;
+
+		}
+
+		function f_H17(){
+				return	(0.02*E6)/L17;
+		}
+
+		function	f_I17(){
+			return	(0.2*E6)/L17;
+
+		}
+		function f_J17(){
+			return	(0.02*E9)/L17;
+
+		}
+
+		function f_K17(){
+				return	(0.2*E9)/L17;
+		}
+
+		function	f_F17(){
+			/*
+				=IF(E10<30;H17&" - "&I17;J17&" - "&K17)
+			*/
+			resp ='';
+			if (E10 <30){
+				resp=  (parseFloat(H17).toFixed(1) + " - " + parseFloat(I17).toFixed(1));
+			}else{
+				resp=  (parseFloat(J17).toFixed(1) + " - " + parseFloat(K17).toFixed(1));
+			}
+			return	resp;
+		}
+
+
+		function f_H18(){
+				return	(0.01*E6)/L18;
+		}
+
+		function	f_I18(){
+			return	(0.1*E6)/L18;
+
+		}
+		function f_J18(){
+			return	(0.01*E9)/L18;
+
+		}
+
+		function f_K18(){
+				return	(0.1*E9)/L18;
+		}
+
+		function	f_F18(){
+			/*
+				=IF(E10<30;H18&" - "&I18;J18&" - "&K18)
+			*/
+			resp ='';
+			if (E10 <30){
+				resp=  (parseFloat(H18).toFixed(1) + " - " + parseFloat(I18).toFixed(1));
+			}else{
+				resp=  (parseFloat(J18).toFixed(1) + " - " + parseFloat(K18).toFixed(1));
+			}
+
+			return resp;
+		}
+
+		function f_H19(){
+			return	(0.3*E6)/L19;
+		}
+
+		function f_I19(){
+			return	(3*E6)/L19;
+
+		}
+		function f_J19(){
+			return	(0.3*E9)/L19;
+
+		}
+
+		function f_K19(){
+				return	(3*E9)/L19;
+		}
+
+		function	f_F19(){
+			/*
+				=IF(E10<30;H19&" - "&I19;J19&" - "&K19)
+			*/
+			resp ='';
+			if (E10 <30){
+				resp=  (parseFloat(H19).toFixed(1) + " - " + parseFloat(I19).toFixed(1));
+			}else{
+				resp=  (parseFloat(J19).toFixed(1) + " - " + parseFloat(K19).toFixed(1));
+			}
+			return resp;
+		}
+
+		function f_H20(){
+				return	(0.2*E6)/L20;
+		}
+
+		function	f_I20(){
+			return	(1.4*E6)/L20;
+
+		}
+
+		function	f_F20(){
+			/*
+				=H20&" - "&I20
+			*/
+			resp ='';
+			resp=  (parseFloat(H20).toFixed(1) + " - " + parseFloat(I20).toFixed(1));
+			return	resp;
+		}
+
+		function f_H22(){
+				return	(0.005*E6*60)/L22;
+		}
+
+		function	f_I22(){
+			return	(0.02*E6*60)/L22;
+
+		}
+		function f_J22(){
+			return	(0.005*E8*60)/L22;
+
+		}
+
+		function f_K22(){
+				return	(0.02*E8*60)/L22;
+		}
+
+		function	f_F22(){
+			/*
+				=IF(E10<30;H22&" - "&I22;J22&" - "&K22)
+			*/
+			resp ='';
+			if (E10 <30){
+				resp=  (parseFloat(H22).toFixed(1) + " - " + parseFloat(I22).toFixed(1));
+			}else{
+				resp=  (parseFloat(J22).toFixed(1) + " - " + parseFloat(K22).toFixed(1));
+			}
+			return resp;
+		}
+
+		function f_H23(){
+				return	(0.0008*E6*60)/L23;
+		}
+
+		function	f_I23(){
+			return	(0.0014*E6*60)/L23;
+
+		}
+		function f_J23(){
+			return	(0.0008*E8*60)/L23
+
+		}
+
+		function f_K23(){
+				return	(0.0014*E8*60)/L23;
+		}
+
+		function	f_F23(){
+			/*
+				=IF(E10<30;H23&" - "&I23;J23&" - "&K23)
+			*/
+			resp ='';
+			if (E10 <30){
+				resp=  (parseFloat(H23).toFixed(1) + " - " + parseFloat(I23).toFixed(1));
+			}else{
+				resp=  (parseFloat(J23).toFixed(1) + " - " + parseFloat(K23).toFixed(1));
+			}
+			return resp;
+		}
+
+		function calcular(){
+			E5 = document.getElementById("altura").value;
+			E4 = document.getElementById("genero").value;
+			E6 = document.getElementById("peso").value;
+
+			E8 = f_E8();
+			E10 = f_E10();
+			E9 = f_E9();
+			F13 = f_F13();
+			H14 = f_H14();
+			I14 = f_I14();
+			J14 = f_J14();
+			K14 = f_K14();
+			F14 = f_F14();
+			H15 = f_H15();
+			I15 = f_I15();
+			J15 = f_J15();
+			K15 = f_K15();
+			F15 = f_F15();
+			H17 = f_H17();
+			I17 = f_I17();
+			J17 = f_J17();
+			K17 = f_K17();
+			F17 = f_F17();
+			H18 = f_H18();
+			I18 = f_I18();
+			J18 = f_J18();
+			K18 = f_K18();
+			F18 = f_F18();
+			H19 = f_H19();
+			I19 = f_I19();
+			J19 = f_J19();
+			K19 = f_K19();
+			F19 = f_F19();
+			H20 = f_H20();
+			I20 = f_I20();
+			F20 = f_F20();
+			H22 = f_H22();
+			I22 = f_I22();
+			J22 = f_J22();
+			K22 = f_K22();
+			F22 = f_F22();
+			H23 = f_H23();
+			I23 = f_I23();
+			J23 = f_J23();
+			K23 = f_K23();
+			F23 = f_F23();
+
+
+			
+			document.getElementById("pesoteorico").innerHTML=(E8=='')?' ':parseFloat(E8).toFixed(2); 
+			document.getElementById("imc").innerHTML=(E10=='')?' ':parseFloat(E10).toFixed(2);
+			document.getElementById("pesocorregido").innerHTML=(E9=='')?' ':parseFloat(E9).toFixed(2); 
+			document.getElementById("c_F13").innerHTML= F13;
+			document.getElementById("c_F14").innerHTML= F14;
+			document.getElementById("c_F15").innerHTML= F15;
+			document.getElementById("c_F17").innerHTML= F17;
+			document.getElementById("c_F18").innerHTML= F18;
+			document.getElementById("c_F19").innerHTML= F19;
+			document.getElementById("c_F20").innerHTML= F20;
+			document.getElementById("c_F22").innerHTML= F22;
+			document.getElementById("c_F23").innerHTML= F23;
+		}
+	</script>
+	<style >
+		.celeste{ background-color: 	lightblue;
+						}
+		.rosa{ background-color: 	pink;			
+
+		}
+		.naranja{ background-color: 	sandybrown;
+							}
+		.verde{ background-color: 	#bdecb6;
+	
+		}
+		.negrita{
+				font-weight: 	bold; 
+		}
+		.gris{
+			background-color: 	silver;
+		}
+		.italica{
+			font-style: 	oblique;	
+		}
+		.derecha{
+			text-align: right;
+		}
+		.izquierda{
+			text-align: left;
+		}
+	</style>
+	<title>
+	Calc. ASR v1	
+	</title>
+</head>
+<body class="text-center">
+	<div class="container-sm " 	>	
+	<main class="form-signin">
+	<form onsubmit="return false;">	
+		<h1 class="h3 mb-3 fw-normal">Calculador ASR v1</h1>
+			<div class="form-floating">
+
+				<select id="genero" class="form-control" name="genero" onchange="calcular()">
+    				<option value="F">Femenino</option>
+    				<option value="M">Masculino</option>
+    				
+  				</select>
+  				<label for="genero">Sexo	</label>
+			</div>
+			<div class="form-floating">
+				<input  class="form-control" id="altura" name="altura" type="number" min="140" max="210" pattern="[0-9]*" inputmode="numeric">
+				<label for="altura"  >Altura en cm	</label>
+
+			</div>
+			<div class="form-floating">
+				<input type="text" class="form-control" id="peso" name="peso" type="number" min="40" max ="180" pattern="[0-9]*"  inputmode="numeric">
+				<label for="peso" >Peso en kg	</label>
+			</div>
+
+			<button class="w-100 btn btn-lg btn-primary" type="submit" value="Submit" onclick="calcular()">Calcular</button>
+
+	</form>
+	</main>
+	</div>
+	<div class="container  ">	
+	<div class="row justify-content-center  ">
+		<div class="col-4 border">Peso teórico (kg)</div>
+		<div class="col-4 border negrita	" id="pesoteorico" name="pesoteorico"></div>
+	</div>
+	<div class="row justify-content-center">
+		<div class="col-4 border	">Peso corregido (kg)</div>
+		<div class="col-4 border negrita	" id="pesocorregido" name="pesocorregido"></div>
+	</div>
+	<div class="row justify-content-center">
+		<div class="col-4 border	">IMC (kg/m<sup>2</sup>)</div>
+		<div class="col-4 border negrita	" id="imc" name="imc"></div>
+	</div>
+	</div>
+	<div class="container-fluid">
+		 <div class="row justify-content-md-center">
+			<div class="col">	</div>
+			<div class="col">Dosis	</div>
+			<div class="col">Dilución estándar</div>
+			<div class="col negrita">Rango de Infusión (ml/h)</div>
+		</div>
+		<div class="row justify-content-md-center">
+			<div class="col rosa negrita izquierda	" >Morfina	</div>
+			<div class="col">1-6 mg/h	</div>
+			<div class="col">50 mg/100 ml</div>
+			<div class="col gris negrita" name="c_F13" id="c_F13"></div>
+		</div>
+		<div class="row justify-content-md-center">
+			<div class="col verde negrita izquierda" >Fentanilo</div>
+			<div class="col">0,7-2 mcg/kg/h</div>
+			<div class="col">1,5 mg/100 ml</div>
+			<div class="col gris negrita" name="c_F14" id="c_F14"></div>
+		</div>
+		<div class="row justify-content-md-center">
+			<div class="col verde negrita izquierda" >Remifentanilo</div>
+			<div class="col">0,02-0,2 mcg/kg/min</div>
+			<div class="col">10 mg/100 ml</div>
+			<div class="col gris negrita" name="c_F15" id="c_F15"></div>
+		</div>
+		
+		<div class="row"><div class="col mb-4"></div></div>
+
+		<div class="row justify-content-md-center">
+			<div class="col verde negrita izquierda" >Midazolam</div>
+			<div class="col">0,02-0,2 mg/kg/h</div>
+			<div class="col">300 mg/100 ml</div>
+			<div class="col gris negrita" name="c_F17" id="c_F17"></div>
+		</div>
+		<div class="row justify-content-md-center">
+			<div class="col verde negrita izquierda" >Lorazepam</div>
+			<div class="col">0,01-0,1 mg/kg/h</div>
+			<div class="col">80 mg/100 ml</div>
+			<div class="col gris negrita" name="c_F18" id="c_F18"></div>
+		</div>
+		<div class="row justify-content-md-center">
+			<div class="col verde negrita izquierda">Propofol</div>
+			<div class="col">0,3-3 mg/kg/h</div>
+			<div class="col">1000 mg sin diluir</div>
+			<div class="col gris negrita" name="c_F19" id="c_F19"></div>
+		</div>
+		<div class="row justify-content-md-center">
+			<div class="col celeste negrita izquierda" >Dexmedetomidina</div>
+			<div class="col">0,2-1,4 mcg/kg/h</div>
+			<div class="col">400 mcg/100 ml</div>
+			<div class="col gris negrita" name="c_F20" id="c_F20"></div>
+		</div>
+		
+		<div class="row"><div class="col mb-4"></div></div>
+		
+		<div class="row justify-content-md-center">
+			<div class="col naranja negrita izquierda">Atracurio</div>
+			<div class="col">5-20 mcg/kg/min</div>
+			<div class="col">500 mg/100 ml</div>
+			<div class="col gris negrita" name="c_F22" id="c_F22"></div>
+		</div>
+		<div class="row justify-content-md-center">
+			<div class="col naranja negrita izquierda" >Vecuronio</div>
+			<div class="col">0,8-1,4 mcg/kg/min</div>
+			<div class="col">100 mg/100 ml</div>
+			<div class="col gris negrita" name="c_F23" id="c_F23"></div>
+		</div>
+		<div class="row"><div class="col mb-4"></div></div>
+        <div class="row">
+				<div class="col-md-6 rosa italica izquierda	" >No se le aplican cálculos relacionados al peso corporal</div>
+				
+		</div>
+		 <div class="row">
+				<div class="col-md-6 verde italica izquierda">En IMC >30, se ajustan automáticamente al "peso corregido"</div>
+				
+		</div>
+		<div class="row">
+				<div class="col-md-6 celeste italica izquierda">No se le aplican ajustes por IMC aumentado</div>
+				<div class="col-md-6 italica derecha"></div>
+		</div>
+		<div class="row">
+				<div class="col-md-6 naranja italica izquierda">En IMC >30, se ajustan automáticamente al "peso teórico"</div>
+				<div class="col-md-6 italica derecha"> UTI HGAJAF - AK&PR 2021</div>
+	</div>
+	</div>
+	<div class="row"><div class="col mb-4"></div></div>
+	<div class="container" name="pie">
+		<div class="row">
+			<div class="col"><a href ="disclaimer.html"  rel="noopener noreferrer" target="_blank">Disclaimer</a></div>
+			<div class="col"><a href ="bibliografia.html"  rel="noopener noreferrer" target="_blank">Bibliografía</a></div>
+			<div class="col"><a href="mailto:utijaf@gmail.com?Subject=Consulta%20por%20Calculadora%20ASR">Contacto</a></div>
+		</div>
+	</div>
+	
+</body>
+</html>

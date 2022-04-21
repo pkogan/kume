@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<link rel="icon" type="image/png" href="img/kume.png" >
+	<link rel="apple-touch-icon" href="img/favicon.png">
+	
+	<link rel="stylesheet" type="text/css" href="boostrap/css/bootstrap.min.css" >
+	<link rel="stylesheet" type="text/css" href="css/estilo.css" />
+	<meta name="author" content="Dra. Ana L. Kovac, Dr. Pablo I. Ripoll">
+    <script src="boostrap/js/bootstrap.bundle.min.js" ></script>
+	<script src="js/calc.js"></script>
+
+	<meta charset="utf-8">
+	<meta name="keywords" content="ASR v1, HGAJAF, División Terapia Intensiva, kume">
+	<meta name="description" content="Calculador ASR v1">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script data-dapp-detection="">!function(){let e=!1;function n(){if(!e){const n=document.createElement("meta");n.name="dapp-detected",document.head.appendChild(n),e=!0}}if(window.hasOwnProperty("ethereum")){if(window.__disableDappDetectionInsertion=!0,void 0===window.ethereum)return;n()}else{var t=window.ethereum;Object.defineProperty(window,"ethereum",{configurable:!0,enumerable:!1,set:function(e){window.__disableDappDetectionInsertion||n(),t=e},get:function(){if(!window.__disableDappDetectionInsertion){const e=arguments.callee;e&&e.caller&&e.caller.toString&&-1!==e.caller.toString().indexOf("getOwnPropertyNames")||n()}return t}})}}();</script>
+
+	<title>
+	Calc. ASR v1	
+	</title>
+
+
+</head>
+<body class="text-center">
+	<div class="container-sm " 	>	
+	<main class="form-signin">
+	<form onsubmit="return false;">	
+		
+			<img src="img/calc.png" class="img-fluid" height="50em" >
+
+			<div class="form-floating">
+
+				<select id="genero" class="form-control" name="genero" onchange="calcular()">
+    				<option value="F">Femenino</option>
+    				<option value="M">Masculino</option>
+    				
+  				</select>
+  				<label for="genero">Sexo</label>
+			</div>
+			<div class="form-floating">
+				<input  class="form-control" id="altura" name="altura" type="number" min="140" max="210" pattern="[0-9]*" inputmode="numeric">
+		  		<label for="altura"  >Altura en cm	</label>
+
+			</div>
+			<div class="form-floating">
+				<input class="form-control" id="peso" name="peso" type="number" min="40" max ="180" pattern="[0-9]*"  inputmode="numeric">
+				<label for="peso" >Peso en kg	</label>
+			</div>
+
+			<button class="w-100 btn btn-lg btn-primary" type="submit" value="Submit" onclick="calcular()" style="margin-top: 1em;">Calcular</button>
+
+	</form>
+	</main>
+	</div>
+	
+	<div class="container margen ">	
+	<div class="row justify-content-center  ">
+		<div class="col-5 border">Peso teórico (kg)</div>
+		<div class="col-5 border negrita	" id="pesoteorico" name="pesoteorico"></div>
+	</div>
+	<div class="row justify-content-center">
+		<div class="col-5 border	">Peso corregido (kg)</div>
+		<div class="col-5 border negrita	" id="pesocorregido" name="pesocorregido"></div>
+	</div>
+	<div class="row justify-content-center">
+		<div class="col-5 border	">IMC (kg/m<sup>2</sup>)</div>
+		<div class="col-5 border negrita	" id="imc" name="imc"></div>
+	</div>
+	</div>
+	<div class="container-fluid">
+
+
+
+		 <div class="row justify-content-md-center ">
+			<div class="col border d-flex justify-content-center align-items-center">Fármaco	</div>
+			<div class="col border d-flex justify-content-center align-items-center">Dosis	</div>
+			<div class="col border d-flex justify-content-center align-items-center ">Dilución estándar</div>
+			<div class="col border negrita d-flex justify-content-center align-items-center">Rango de Infusión (ml/h)</div>
+		</div>
+		<div class="row justify-content-md-center">
+			<div class="col border rosa negrita d-flex justify-content-left align-items-center "  ><span >Mor&shy;fi&shy;na</span>	</div>
+			<div class="col border d-flex justify-content-center align-items-center">1-6 mg/h	</div>
+			<div class="col border d-flex justify-content-center align-items-center">50 mg + 100 ml</div>
+			<div class="col border gris negrita d-flex justify-content-center align-items-center" name="c_F13" id="c_F13"></div>
+		</div>
+		<div class="row justify-content-md-center">
+			<div class="col border verde negrita d-flex justify-content-left align-items-center " ><span >Fen&shy;ta&shy;ni&shy;lo</span> </div>
+			<div class="col border d-flex justify-content-center align-items-center">0,7-2 mcg/kg/h</div>
+			<div class="col border d-flex justify-content-center align-items-center">1,5 mg + 100 ml</div>
+			<div class="col border gris negrita d-flex justify-content-center align-items-center" name="c_F14" id="c_F14"></div>
+		</div>
+		<div class="row justify-content-md-center">
+			<div class="col verde border negrita d-flex justify-content-left align-items-center " >Re&shy;mi&shy;fen&shy;ta&shy;ni&shy;lo</div>
+			<div class="col border d-flex justify-content-center align-items-center">0,02-0,2 mcg/kg/min</div>
+			<div class="col border d-flex justify-content-center align-items-center">10 mg + 100 ml</div>
+			<div class="col border gris negrita d-flex justify-content-center align-items-center" name="c_F15" id="c_F15"></div>
+		</div>
+		
+		<div class="row"><div class="col mb-4"></div></div>
+
+		<div class="row justify-content-md-center">
+			<div class="col border verde negrita d-flex justify-content-left align-items-center " >Mi&shy;da&shy;zo&shy;lam</div>
+			<div class="col border d-flex justify-content-center align-items-center">0,02-0,2 mg/kg/h</div>
+			<div class="col border d-flex justify-content-center align-items-center">300 mg + 100 ml</div>
+			<div class="col border gris negrita d-flex justify-content-center align-items-center" name="c_F17" id="c_F17"></div>
+		</div>
+		<div class="row justify-content-md-center">
+			<div class="col border verde negrita d-flex justify-content-left align-items-center " >Lo&shy;ra&shy;ze&shy;pam</div>
+			<div class="col border d-flex justify-content-center align-items-center">0,01-0,1 mg/kg/h</div>
+			<div class="col border d-flex justify-content-center align-items-center">80 mg + 100 ml</div>
+			<div class="col border gris negrita d-flex justify-content-center align-items-center" name="c_F18" id="c_F18"></div>
+		</div>
+		<div class="row justify-content-md-center">
+			<div class="col border verde negrita d-flex justify-content-left align-items-center ">Pro&shy;po&shy;fol</div>
+			<div class="col border d-flex justify-content-center align-items-center">0,3-3 mg/kg/h</div>
+			<div class="col border d-flex justify-content-center align-items-center">1000 mg sin diluir</div>
+			<div class="col border gris negrita d-flex justify-content-center align-items-center" name="c_F19" id="c_F19"></div>
+		</div>
+		<div class="row justify-content-md-center">
+			<div class="col border celeste negrita d-flex justify-content-left align-items-center " >Dex&shy;me&shy;de&shy;to&shy;mi&shy;di&shy;na</div>
+			<div class="col border d-flex justify-content-center align-items-center">0,2-1,4 mcg/kg/h</div>
+			<div class="col border d-flex justify-content-center align-items-center">400 mcg + 100 ml</div>
+			<div class="col border gris negrita d-flex justify-content-center align-items-center" name="c_F20" id="c_F20"></div>
+		</div>
+		
+		<div class="row"><div class="col mb-4"></div></div>
+		
+		<div class="row justify-content-md-center">
+			<div class="col border naranja negrita d-flex justify-content-left align-items-center ">A&shy;tra&shy;cu&shy;rio</div>
+			<div class="col border d-flex justify-content-center align-items-center">5-20 mcg/kg/min</div>
+			<div class="col border d-flex justify-content-center align-items-center">500 mg + 100 ml</div>
+			<div class="col border gris negrita d-flex justify-content-center align-items-center" name="c_F22" id="c_F22"></div>
+		</div>
+		<div class="row justify-content-md-center">
+			<div class="col border naranja negrita d-flex justify-content-left align-items-center " >Ve&shy;cu&shy;ro&shy;nio</div>
+			<div class="col border d-flex justify-content-center align-items-center">0,8-1,4 mcg/kg/min</div>
+			<div class="col border d-flex justify-content-center align-items-center">100 mg + 100 ml</div>
+			<div class="col border gris negrita d-flex justify-content-center align-items-center" name="c_F23" id="c_F23"></div>
+		</div>
+		<div class="row"><div class="col mb-4"></div></div>
+        <div class="row">
+				<div class="col rosa italica centro	" >No se le aplican cálculos relacionados al peso corporal</div>
+				
+		</div>
+		 <div class="row">
+				<div class="col verde italica centro">En IMC >30, se ajustan automáticamente al "peso corregido"</div>
+				
+		</div>
+		<div class="row">
+				<div class="col celeste italica centro">No se le aplican ajustes por IMC aumentado</div>
+				
+		</div>
+		<div class="row">
+
+				<div class="col naranja italica centro">En IMC >30, se ajustan automáticamente al "peso teórico"</div>
+				
+	</div>
+	</div>
+
+		<img src="img/pie.jpeg" class="img-fluid"  >
+		
+	
+<footer class="footer">
+		<div class="container">
+			<div class="row">
+				
+				<div class="col nopadding"><a href ="bibliografia.html"  rel="noopener noreferrer" target="_blank" class="enlace">Bibliografía</a></div>
+				<div class="col nopadding" style="float: left;"><a href ="InstructivoApp-2.html"  rel="noopener noreferrer" target="_blank" class="enlace">Información</a></div>
+
+			<div class="col nopadding" style="float: left;"><a href ="acercade.html"  rel="noopener noreferrer" target="_blank" class="enlace">Acerca de</a></div>
+				<div class="col nopadding" style="float: left;"><a href="mailto:utijaf@gmail.com?Subject=Consulta%20por%20Calculador%20ASR" class="enlace">Contacto</a></div>
+
+			</div>
+	
+		</div>
+	  </footer>
+	
+	
+</body>
+</html>

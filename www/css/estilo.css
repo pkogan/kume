@@ -1,0 +1,94 @@
+body{
+			 	-ms-word-break: break-all;
+    			word-break: break-all;
+    			word-break: break-word;     /* Sólo WebKit -NO DOCUMENTADO */
+
+    			-ms-hyphens: auto;          /* Guiones para separar en sílabas */
+    			-moz-hyphens: auto;         /*  depende de lang en <html>      */
+    			-webkit-hyphens: auto;
+    			hyphens: auto;
+    			vertical-align: middle;
+		}
+		img{
+			padding-top: 2em;
+			padding-bottom: 2em;
+
+		}
+
+		.infopie{
+
+			text-align: left;
+			font-size: 0.8em;
+			padding: 50;
+			margin: 1;
+		}
+
+		.celeste{ 
+				background-color: 	lightblue;
+  				
+
+		}
+		.rosa{ background-color: 	pink;			
+
+		}
+		.naranja{ background-color: 	sandybrown;
+							}
+		.verde{ background-color: 	#bdecb6;
+			
+	
+		}
+		.negrita{
+				font-weight: 	bold; 
+		}
+		.gris{
+			background-color: 	silver;
+		}
+		.italica{
+			font-style: 	oblique;	
+		}
+		.derecha{
+			text-align: right;
+		}
+		.izquierda{
+			text-align: left;
+		}
+		.centro{
+			text-align: center;
+		}
+		#pie{
+			font-size: 13px;
+    		height: 50px;
+    		line-height: 49px;
+    		text-align: center;
+    		color: #fFfFfF;
+			margin: 0;
+			padding: 0;
+    		background-color: #666;
+			position: absolute;
+		}
+		
+		.enlace{
+			color: rgb(56, 54, 185);
+			
+		}
+		.margen{
+			margin-top: 2em;
+			margin-bottom: 2em;
+		}
+		.footer {
+		
+  		bottom: 0;
+  		width: 100%;
+  		height: auto; /* Set the fixed height of the footer here */
+  		min-height: 60px;
+  		/* line-height: 60px; Vertically center the text there */
+  		background-color: Gainsboro;
+  		hyphens: none;
+  		padding: 10;
+  		margin: 10;
+		}
+
+		.nopadding{
+			padding: 0;
+			
+		}

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<link rel="icon" type="image/png" href="img/kume.png" >
+	<link rel="apple-touch-icon" href="img/favicon.png">
+	
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+	
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script data-dapp-detection="">!function(){let e=!1;function n(){if(!e){const n=document.createElement("meta");n.name="dapp-detected",document.head.appendChild(n),e=!0}}if(window.hasOwnProperty("ethereum")){if(window.__disableDappDetectionInsertion=!0,void 0===window.ethereum)return;n()}else{var t=window.ethereum;Object.defineProperty(window,"ethereum",{configurable:!0,enumerable:!1,set:function(e){window.__disableDappDetectionInsertion||n(),t=e},get:function(){if(!window.__disableDappDetectionInsertion){const e=arguments.callee;e&&e.caller&&e.caller.toString&&-1!==e.caller.toString().indexOf("getOwnPropertyNames")||n()}return t}})}}();</script>
+
+<style>
+.botoncalcular{
+    color: #fff;
+    background-color: #0d6efd;
+    border-color: #0d6efd;
+    width: 5em;
+    text-align: center;
+     padding: 0.5em;
+     
+
+}
+body{
+            padding-top: 2em;
+        }
+    p{
+        text-align: justify;
+    }
+</style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <b>  <p style="text-align:center;">  Calculador ASR v1 - Junio de 2021</p>
+        </b>
+        <p><b>Descripción:</b></p>
+        <p>
+        La presente herramienta pretende brindar ayuda al profesional médico para calcular la correcta dosificación de los fármacos de analgesia, sedación y bloqueo neuromuscular a ser administradas en infusión endovenosa continua a pacientes adultos internados en Unidades de Cuidado Intensivo (UCI).  </p>
+        <p>
+       Se trata de un material en desarrollo que podrá ser mejorado en la forma de nuevas versiones, ya sea por incorporación de nuevos fármacos o por modificaciones sobre los ya incluidos.
+        </p>
+
+        <p>
+Los rangos de dosis que este calculador utiliza fueron adoptados a partir de la experiencia de nuestro centro, y después de haber verificado para ellos los fundamentos y el mayor consenso a través de la diversa literatura consultada. 
+
+        </p>
+        <p>
+      La aplicación está primariamente dirigida a calcular infusiones para los individuos de peso normal. No obstante, efectúa automáticamente el ajuste apropiado (a peso teórico, o a peso corregido) a los pacientes con obesidad (definida como Índice de Masa Corporal -IMC- > 30 kg/m<sup>2</sup>), para aquellos fármacos en que el mismo es requerido.
+
+
+     </p>
+        <p>
+        El uso de las drogas de referencia en otras poblaciones especiales (pediátrica, geriátrica, obstétrica/lactante, de bajo peso, portadora de insuficiencia renal, hepática o de otros parénquimas, sometida a terapias de reemplazo renal o bajo circulación extracorpórea, entre otras condiciones fisiológicas o patológicas) puede requerir, como es doctrina en nuestra especialidad, la aplicación de posologías individualizadas. La utilización “directa” de esta herramienta para el cálculo de infusiones destinadas a pacientes de tales poblaciones puede dar lugar a error, y se desaconseja.
+</p>
+        <p>
+        La aplicación no provee información respecto de la administración de “bolos iniciales” de cada medicación para la que los mismos puedan estar indicados.
+
+        </p>
+        <p>
+      Debe tenerse presente que esta herramienta no tiene en cuenta aquellos ajustes posológicos que pudieran requerirse debido al uso combinado de los diversos fármacos.
+
+        </p>
+        <p>
+        Tampoco contempla ajustes que pudieran plantearse a partir de las variaciones del agua corporal total (tercer espacio), dado que la evidencia en la literatura respecto de estos fármacos y en dicho particular, es escasa e inconsistente.
+
+        </p>
+        <p>
+    Dado que ninguna herramienta sustituye el juicio clínico del profesional tratante, la presente no contempla ni prevé eventuales fenómenos alérgicos, idiosincráticos, de tolerancia, de dependencia, interacciones medicamentosas, ni efectos adversos.
+
+        </p>
+        
+        <p>
+Agradeceremos nos haga llegar cualquier comentario que pueda contribuir a mejorar la aplicación desde  <a href="mailto:utijaf@gmail.com?Subject=Consulta%20por%20Calculador%20ASR" class="enlace">Contacto</a>. 
+    </p>
+
+        <p><b>Instrucciones de uso:</b></p>
+        <p style=" display: inline;">
+       Solamente deben ser cargados los datos requeridos en la parte superior: <b>sexo biológico, peso corporal actual </b>(en kg) <b>y estatura</b> (en cm). A continuación, presionar el botón <button class="btn btn-primary" disabled>Calcular</button>.</p>
+       <p> El programa mostrará entonces:</p>
+        
+            <ul>
+            <li><b>Peso teórico, peso corregido</b> (este último, sólo en los casos de obesidad) e 
+                <b>IMC</b>  del paciente en cuestión (acorde a fórmulas de uso habitual).</li>
+
+            <li><b>El rango de infusión</b> (en ml/h) para cada una de las drogas listadas.
+            
+             </li>
+             </ul>
+             <p>
+               
+Debe tenerse en cuenta que la dilución de todos los fármacos ha sido estandarizada, y que la nomenclatura utilizada debe ser interpretada de la siguiente forma:
+
+              <div class="border border-dark" style="text-align: center; padding: 0 1em 0 1em;"><b>
+             XXX mg del fármaco [en presentación original], añadidos a YYY ml del solvente elegido
+                </b>
+             </p>
+             <p>   
+           <i> Ejemplo: 300 mg de midazolam (20 ampollas de 15 mg en 3 ml, total volumen 60 ml) MAS 100 ml de solución fisiológica, resultando un volumen final de 160 ml</i>
+ </div>
+             </p>
+        
+        <p>Dicha dilución estandarizada (así como el rango prescribible de dosis) se exhibe junto al nombre de cada fármaco.</p>
+
+    </div>
+
+</body>
+</html>
